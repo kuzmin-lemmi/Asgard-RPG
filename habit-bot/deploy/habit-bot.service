@@ -1,0 +1,16 @@
+[Unit]
+Description=HabitBot (Telegram)
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+User=habitbot
+WorkingDirectory=/opt/habit-bot
+ExecStart=/opt/habit-bot/.venv/bin/python bot.py
+Restart=always
+RestartSec=5
+Environment=PYTHONUNBUFFERED=1
+
+[Install]
+WantedBy=multi-user.target
